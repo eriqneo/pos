@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="flex h-screen bg-gray-100">
+      <!-- Sidebar -->
+      <div
+        id="sidebar"
+        class="bg-white w-64 h-screen shadow-lg transition-transform transform translate-x-0 lg:translate-x-0"
+      >
+        <!-- Logo Section -->
+        <div class="p-4 flex items-center justify-between">
+          <h1 class="text-xl font-bold text-fuchsia-600">JichoPOS</h1>
+          <button
+            id="toggleSidebar"
+            class="text-white hover:text-gray-700 px-2 rounded-md bg-fuchsia-600 focus:outline-none"
+          >
+            &lt;
+          </button>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="mt-6">
+          <ul>
+            <li class="p-2 m-2 bg-orange-100 rounded-3xl">
+              <a
+                href="#"
+                class="flex items-center space-x-3 font-medium px-4 py-2 text-fuchsia-600"
+              >
+                <i class="bx bxs-dashboard bx-sm"></i>
+                <span class="material-icons font-bold">Dashboard</span>
+              </a>
+            </li>
+            <!--Receipt dropdown-->
+            <li
+              class="p-2 m-2 bg-fuchsia-100 hover:bg-orange-100 font-medium rounded-3xl text-gray-500 hover:font-bold hover:text-fuchsia-600"
+            >
+              <!-- Toggle Button -->
+              <div class="relative group">
+                <button
+                  data-popover-target="menu"
+                  class="py-2 px-4 border border-transparent text-center flex items-center space-x-2"
+                  type="button"
+                >
+                  <i class="bx bxs-receipt bx-sm"></i>
+                  <span>Receipt</span>
+                  <i id="icon" class="bx bx-chevron-down bx-sm"></i>
+                  <!--<i id="icon2" class="hidden bx bx-chevron-up bx-sm"></i>-->
+                </button>
+                <!-- Dropdown Menu -->
+                <ul
+                  id="menu"
+                  role="menu"
+                  class="hidden relative group-hover:block rounded-lg border border-fuchsia-200 p-1.5 focus:outline-none"
+                >
+                  <li
+                    role="menuitem"
+                    class="cursor-pointer flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-white focus:bg-slate-100 active:bg-slate-100"
+                  >
+                    Create Receipt
+                  </li>
+                  <li
+                    role="menuitem"
+                    class="cursor-pointer flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-white focus:bg-slate-100 active:bg-slate-100"
+                  >
+                    Receipts Table
+                  </li>
+                  <li
+                    role="menuitem"
+                    class="cursor-pointer flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-white focus:bg-slate-100 active:bg-slate-100"
+                  >
+                    Menu Item 3
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+            <!--Product Dropdown-->
+            <li
+              class="p-2 m-2 bg-fuchsia-100 hover:bg-orange-100 font-medium rounded-3xl text-gray-500 hover:font-bold hover:text-fuchsia-600"
+            >
+              <!-- Toggle Button -->
+              <div class="relative group">
+                <button
+                  data-popover-target="menu"
+                  class="py-2 px-4 border border-transparent text-center flex items-center space-x-2"
+                  type="button"
+                >
+                  <i class="bx bxs-package bx-sm"></i>
+                  <span>Product</span>
+                  <i id="icon" class="bx bx-chevron-down bx-sm"></i>
+                  <!--<i id="icon2" class="hidden bx bx-chevron-up bx-sm"></i>-->
+                </button>
+                <!-- Dropdown Menu -->
+                <ul
+                  id="menu"
+                  role="menu"
+                  class="hidden relative group-hover:block rounded-lg border border-fuchsia-200 p-1.5 focus:outline-none"
+                >
+                  <li
+                    role="menuitem"
+                    class="cursor-pointer flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-white focus:bg-slate-100 active:bg-slate-100"
+                  >
+                    Manage Product
+                  </li>
+                  <li
+                    role="menuitem"
+                    class="cursor-pointer flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-white focus:bg-slate-100 active:bg-slate-100"
+                  >
+                    Manage Category
+                  </li>
+                  <li
+                    role="menuitem"
+                    class="cursor-pointer flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-white focus:bg-slate-100 active:bg-slate-100"
+                  >
+                    Product Table
+                  </li>
+                  <li
+                    role="menuitem"
+                    class="cursor-pointer flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-white focus:bg-slate-100 active:bg-slate-100"
+                  >
+                    Category Table
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <!--Reports Dropdown-->
+            <li
+              class="p-2 m-2 bg-fuchsia-100 hover:bg-orange-100 font-medium rounded-3xl text-gray-500 hover:font-bold hover:text-fuchsia-600"
+            >
+              <!-- Toggle Button -->
+              <div class="relative group">
+                <button
+                  data-popover-target="menu"
+                  class="py-2 px-4 border border-transparent text-center flex items-center space-x-2"
+                  type="button"
+                >
+                  <i class="bx bxs-report bx-sm"></i>
+                  <span>Reports</span>
+                  <i id="icon" class="bx bx-chevron-down bx-sm"></i>
+                  <!--<i id="icon2" class="hidden bx bx-chevron-up bx-sm"></i>-->
+                </button>
+                <!-- Dropdown Menu -->
+                <ul
+                  id="menu"
+                  role="menu"
+                  class="hidden relative group-hover:block rounded-lg border border-fuchsia-200 p-1.5 focus:outline-none"
+                >
+                  <li
+                    role="menuitem"
+                    class="cursor-pointer flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-white focus:bg-slate-100 active:bg-slate-100"
+                  >
+                    Sales Report
+                  </li>
+                  <li
+                    role="menuitem"
+                    class="cursor-pointer flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-white focus:bg-slate-100 active:bg-slate-100"
+                  >
+                    Income Report
+                  </li>
+                  <li
+                    role="menuitem"
+                    class="cursor-pointer flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-white focus:bg-slate-100 active:bg-slate-100"
+                  >
+                    M-Pesa Report
+                  </li>
+                  <li
+                    role="menuitem"
+                    class="cursor-pointer flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-white focus:bg-slate-100 active:bg-slate-100"
+                  >
+                    Cash Report
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <!--Settings Dropdown-->
+            <li
+              class="p-2 m-2 bg-fuchsia-100 hover:bg-orange-100 font-medium rounded-3xl text-gray-500 hover:font-bold hover:text-fuchsia-600"
+            >
+              <!-- Toggle Button -->
+              <div class="relative group">
+                <button
+                  data-popover-target="menu"
+                  class="py-2 px-4 border border-transparent text-center flex items-center space-x-2"
+                  type="button"
+                >
+                  <i class="bx bx-cog bx-sm"></i>
+                  <span>Settings</span>
+                  <i id="icon" class="bx bx-chevron-down bx-sm"></i>
+                  <!--<i id="icon2" class="hidden bx bx-chevron-up bx-sm"></i>-->
+                </button>
+                <!-- Dropdown Menu -->
+                <ul
+                  id="menu"
+                  role="menu"
+                  class="hidden relative group-hover:block rounded-lg border border-fuchsia-200 p-1.5 focus:outline-none"
+                >
+                  <li
+                    role="menuitem"
+                    class="cursor-pointer flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-white focus:bg-slate-100 active:bg-slate-100"
+                  >
+                    Profile
+                  </li>
+                  <li
+                    role="menuitem"
+                    class="cursor-pointer flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-white focus:bg-slate-100 active:bg-slate-100"
+                  >
+                    Users
+                  </li>
+                  <li
+                    role="menuitem"
+                    class="cursor-pointer flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-white focus:bg-slate-100 active:bg-slate-100"
+                  >
+                    Log Out
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- User Profile Section -->
+        <div
+          class="absolute lg:bottom-4 sm:-bottom-0 left-16 p-4 bg-orange-200 rounded-lg shadow"
+        >
+          <div class="grid grid-cols-1 place-items-center">
+            <img
+              src="https://via.placeholder.com/40"
+              alt="Profile"
+              class="rounded-full w-16 h-16"
+            />
+            <div class="">
+              <p class="font-bold">
+                Neo Tamal <br />
+                <span class="text-xs font-light ml-5">Admin</span>
+              </p>
+              <a
+                href="#"
+                class="text-sm p-1 bg-fuchsia-600 hover:bg-orange-100 text-white hover:text-fuchsia-600 rounded-md mt-2"
+                >Open profile</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 p-6">
+        <!-- Top Navigation -->
+        <header class="flex justify-between items-center">
+          <h1 class="text-2xl font-bold">
+            Welcome Neo. Great to see you back!
+          </h1>
+          <div class="flex items-center space-x-16">
+            <span class="text-fuchsia-600">
+              <i class="bx bxs-bell-ring bx-md"></i>
+            </span>
+            <input
+              type="text"
+              placeholder="Search for foods, drinks, etc."
+              class="border rounded-lg p-2 w-64"
+            />
+          </div>
+        </header>
+
+        <!-- Date Range Tabs -->
+        <div class="flex justify-end mt-4 space-x-4">
+          <button
+            class="px-4 py-2 text-sm font-medium text-gray-500 hover:text-fuchsia-600 border-b-2 hover:border-fuchsia-600"
+          >
+            Yesterday
+          </button>
+          <button
+            class="px-4 py-2 text-sm font-medium text-fuchsia-600 border-b-2 border-fuchsia-600"
+          >
+            Today
+          </button>
+          <button
+            class="px-4 py-2 text-sm font-medium text-gray-500 hover:text-fuchsia-600 border-b-2 hover:border-fuchsia-600"
+          >
+            Week
+          </button>
+          <button
+            class="px-4 py-2 text-sm font-medium text-gray-500 hover:text-fuchsia-600 border-b-2 hover:border-fuchsia-600"
+          >
+            Month
+          </button>
+          <button
+            class="px-4 py-2 text-sm font-medium text-gray-500 hover:text-fuchsia-600 border-b-2 hover:border-fuchsia-600"
+          >
+            Year
+          </button>
+        </div>
+
+        <!-- Dashboard Content -->
+        <main class="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <!-- Daily Sales line chart -->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <div class="flex justify-between items-center">
+              <h2 class="text-lg font-bold">Daily Sales</h2>
+              <button
+                class="text-sm p-2 bg-fuchsia-600 hover:bg-orange-600 text-gray-50 hover:underline rounded-xl"
+              >
+                View Report
+              </button>
+            </div>
+            <p class="text-2xl font-bold mt-4">2,568</p>
+            <p class="text-sm text-green-500">+2.1% vs last week</p>
+            <canvas id="salesChart" class="mt-4"></canvas>
+          </div>
+
+          <!-- Total Receipts-->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <div class="flex justify-between items-center">
+              <h2 class="text-lg font-bold">Total Receipts</h2>
+              <span class="p-2 bg-orange-400 text-white rounded-md">
+                <i class="bx bx-receipt bx-md"></i>
+              </span>
+            </div>
+            <p class="text-6xl font-bold mt-4 text-justify text-fuchsia-600">
+              1,375
+            </p>
+            <div class="w-full bg-gray-200 rounded-full h-1.5 mt-5">
+              <div
+                class="bg-orange-600 h-1.5 rounded-full"
+                style="width: 75%"
+              ></div>
+            </div>
+            <canvas id="incomeChart" class="mt-4"></canvas>
+          </div>
+
+          <!-- Total Income: Category Pie chart -->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-lg font-bold">Total Income</h2>
+            <p class="text-2xl font-bold mt-4">Ksh.21,375</p>
+          </div>
+        </main>
+
+        <!-- Best Selling Categories and Best Selling Products -->
+        <div class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Best Selling Categories -->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <div class="flex justify-between items-center">
+              <h2 class="text-lg font-bold">Best Selling Categories</h2>
+              <button class="text-sm text-fuchsia-600">Amount</button>
+            </div>
+            <ul class="mt-4 space-y-4 divide-y divide-fuchsia-200">
+              <li class="flex justify-between">
+                <p class="font-semibold">
+                  <span class="p-2 bg-orange-200 rounded-full text-3xl"
+                    >&#129475;</span
+                  >
+                  Beverages
+                </p>
+                <span class="font-bold">519</span>
+              </li>
+              <li class="flex justify-between">
+                <p class="font-semibold mt-3">
+                  <span class="text-3xl p-2 bg-fuchsia-200 rounded-full"
+                    >&#127838;</span
+                  >
+                  Bakery
+                </p>
+                <span class="font-bold mt-3">408</span>
+              </li>
+              <li class="flex justify-between">
+                <p class="font-semibold mt-3">
+                  <span class="text-3xl p-2 bg-orange-200 rounded-full"
+                    >&#129367;</span
+                  >
+                  Kitchen Items
+                </p>
+                <span class="font-bold mt-3">314</span>
+              </li>
+              <li class="flex justify-between">
+                <p class="font-semibold mt-3">
+                  <span class="text-3xl p-2 bg-fuchsia-200 rounded-full"
+                    >&#127853;</span
+                  >Sweets
+                </p>
+                <span class="font-bold mt-3">210</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Best Selling Products -->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <div class="flex justify-between items-center">
+              <h2 class="text-lg font-bold">Best Selling Products</h2>
+              <button class="text-sm text-fuchsia-600">Amount</button>
+            </div>
+            <ul class="mt-4 space-y-4 divide-y divide-fuchsia-200">
+              <li class="flex justify-between">
+                <p class="font-semibold">
+                  <span class="p-2 bg-orange-200 rounded-full text-3xl"
+                    >&#127838;</span
+                  >
+                  Bread
+                </p>
+                <span class="font-bold">2000</span>
+              </li>
+              <li class="flex justify-between">
+                <p class="font-semibold mt-3">
+                  <span class="text-3xl p-2 bg-fuchsia-200 rounded-full"
+                    >&#129367;</span
+                  >
+                  Sugar
+                </p>
+                <span class="font-bold mt-3">1408</span>
+              </li>
+              <li class="flex justify-between">
+                <p class="font-semibold mt-3">
+                  <span class="text-3xl p-2 bg-orange-200 rounded-full"
+                    >&#129367;</span
+                  >
+                  Cooking Fat
+                </p>
+                <span class="font-bold mt-3">1314</span>
+              </li>
+              <li class="flex justify-between">
+                <p class="font-semibold mt-3">
+                  <span class="text-3xl p-2 bg-fuchsia-200 rounded-full"
+                    >&#129532;</span
+                  >
+                  Soap
+                </p>
+                <span class="font-bold mt-3">1210</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Toggle sidebar
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleSidebarButton = document.getElementById("toggleSidebar");
+        const sidebar = document.getElementById("sidebar");
+
+        toggleSidebarButton.addEventListener("click", () => {
+          sidebar.classList.toggle("-translate-x-full");
+        });
+      });
+    </script>
+  </body>
+</html>
